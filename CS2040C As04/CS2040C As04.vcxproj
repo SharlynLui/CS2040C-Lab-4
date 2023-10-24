@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Downloads\CS2040C Assignment 4\heap.h" />
     <ClInclude Include="..\..\..\..\Downloads\CS2040C Assignment 4\heap.hpp" />
+    <ClInclude Include="..\..\..\..\Downloads\customer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
