@@ -21,8 +21,6 @@ public:
     int AT() {return arrival_time;};
     int PT() {return processing_time;};
 	bool operator>(const Customer& c); // a customer is "greater" if his time is shorter
-    bool operator<(const Customer& c); //i added
-        
 };
 
 void customerQueueTest(int);

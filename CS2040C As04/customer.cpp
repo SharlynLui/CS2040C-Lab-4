@@ -9,11 +9,6 @@ bool Customer::operator>(const Customer& c) {
 	return comparisonWay ? processing_time < c.processing_time : arrival_time < c.arrival_time; // a customer is "greater" if his time is shorter
 };
 
-bool Customer::operator<(const Customer& c) {
-	return comparisonWay ? processing_time > c.processing_time : arrival_time > c.arrival_time; // a customer is "smaller" if his time is shorter
-};
-
-
 void customerQueueTest(int n_cust) { //n_cust is 10 for the test case
 	int current_time = 0;
 	int totalWaitingTime = 0;
