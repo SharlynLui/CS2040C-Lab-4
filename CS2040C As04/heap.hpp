@@ -101,7 +101,6 @@ void Heap<T>::increaseKey(T from, T to)
 	int index = _lookFor(from);
 	_heap[index] = to;
 	_bubbleUp(index);
-
 }
 
 template <class T>
