@@ -7,8 +7,8 @@ void hiddenHeapTest();
 void customerQueueTest();
 
 int main() {
-    //heapTest();
-    customerQueueTest(10);
+    heapTest();
+    //customerQueueTest(10);
 
 }
 

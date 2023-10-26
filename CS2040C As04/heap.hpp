@@ -26,8 +26,8 @@ void Heap<T>::_bubbleDown(int index) {
 	while (index < _n) {
 		int leftChild = (2 * index) + 1;
 		int rightChild = (2 * index) + 2;
-		if (_heap[index] < _heap[leftChild] && leftChild < _n) {					//either smaller than left only or smaller than both
-			if (_heap[index] < _heap[rightChild] && rightChild < _n) {				//smaller than both left and right
+		if (_heap[leftChild] > _heap[index] && leftChild < _n) {					//either smaller than left only or smaller than both
+			if (_heap[rightChild] > _heap[index] && rightChild < _n) {				//smaller than both left and right
 				if (_heap[leftChild] > _heap[rightChild]) {		//swap with bigger child (left)
 					swap(_heap[index], _heap[leftChild]);
 					index = leftChild;
@@ -42,7 +42,7 @@ void Heap<T>::_bubbleDown(int index) {
 				index = leftChild;								//smaller than left only
 			}
 		}
-		else if (_heap[index] < _heap[rightChild] && rightChild < _n) {			//smaller than right only
+		else if (_heap[rightChild] > _heap[index] && rightChild < _n) {			//smaller than right only
 			swap(_heap[index], _heap[rightChild]);
 			index = rightChild;
 		}
