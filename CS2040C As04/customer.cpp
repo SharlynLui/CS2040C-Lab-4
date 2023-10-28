@@ -48,25 +48,25 @@ void customerQueueTest(int n_cust) { //n_cust is 10 for the test case
 		cout << "Test Round " << round + 1 << endl;
 		cout << (round == 0 ? "First come first serve" : "Customer with the least PT served first") << endl;
 		comparisonWay = round; //round 0 is FIFO, round 1 compares the PT
-		current_time = 0; //cannot be a variable
-		totalWaitingTime = 0; //cannot be a variable
+		current_time = 0;
+		totalWaitingTime = 0;
 		index = 0;
 		PT_left = 0;
 
-		while (index <= n_cust) {
-			// you should change all of the code here inside
+		while (index < n_cust) {
 			//customer will only arrive in the first 10 iteration of the loop for example
 			if (current_time < n_cust) {
 				cout << "Customer arrives at time " << custList[current_time].AT() << " with PT=" << custList[current_time].PT() << endl;
 			}
-			if (queue.empty()) {
+			if (queue.empty() && PT_left < 1) {
 				cout << "Customer arrives when no one is waiting" << endl;
 			}
 			if (current_time < n_cust) {
-				queue.insert(custList[index]);
+				queue.insert(custList[current_time]);
 			}
 			if (PT_left < 1) {
 				current_cust = queue.extractMax();
+				PT_left = current_cust.PT();
 				index++;
 				WT = current_time - current_cust.AT();
 				totalWaitingTime += WT;
@@ -76,6 +76,8 @@ void customerQueueTest(int n_cust) { //n_cust is 10 for the test case
 			PT_left--;
 			current_time++;
 		}
+		cout << "Total Waiting Time: " << totalWaitingTime << endl;
+		cout << "Average Waiting Time: " << totalWaitingTime / (float)n_cust << endl;
 	}
 
 
