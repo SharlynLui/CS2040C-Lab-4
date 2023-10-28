@@ -108,7 +108,7 @@ void Heap<T>::deleteItem(T x){
 	int index = _lookFor(x);
 	swap(_heap[index], _heap[_n - 1]);
 	_n--;
-	if (_heap[index] < x) {
+	if (x > _heap[index]) {
 		_bubbleDown(index);
 	}
 	else if (_heap[index] > x) {
