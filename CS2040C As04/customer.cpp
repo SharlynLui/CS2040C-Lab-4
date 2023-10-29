@@ -39,11 +39,12 @@ void customerQueueTest(int n_cust) { //n_cust is 10 for the test case
 		comparisonWay = round; //round 0 is FIFO, round 1 compares the PT
 		current_time = 0;
 		totalWaitingTime = 0;
-		index = 0; //keep track of how many customers have been served
+		index = 0; //index of the current customer being served
 		PT_left = 0; //processing time left for current customer
 
 		while (index < n_cust) { //exit loop when all the customers have been served already
-			if (current_time < n_cust) { //Customer will only arrive in the first n_cust min according to customer behaviour
+			//Customer will only arrive in the first n_cust min according to customer behaviour
+			if (current_time < n_cust) { 
 				cout << "Customer arrives at time " << custList[current_time].AT() << " with PT=" << custList[current_time].PT() << endl;
 				if (queue.empty() && PT_left < 1) {
 					//no one is waiting when the queue is empty and the server is not busy
@@ -51,10 +52,11 @@ void customerQueueTest(int n_cust) { //n_cust is 10 for the test case
 				}
 				queue.insert(custList[current_time]);
 			}
-			if (PT_left < 1) { //server is done serving the customer and ready to serve the next one
+			if (PT_left < 1) { 
+				//server is done serving the customer and ready to serve the next one
 				current_cust = queue.extractMax();
 				PT_left = current_cust.PT(); //processing time resets with new customer's PT
-				index++; //previous customer is served and dequeued, serving the next one
+				index++; 
 				WT = current_time - current_cust.AT();
 				totalWaitingTime += WT;
 				cout << "Customer is served at time " << current_time << " with AT=" << current_cust.AT() << " and PT=" << current_cust.PT() << " after waiting for "
@@ -66,7 +68,7 @@ void customerQueueTest(int n_cust) { //n_cust is 10 for the test case
 				current_time++;
 			}
 			else {
-				//once all the customers have arrived and inserted into the queue, jump to the next event
+				//once all the customers have arrived and inserted into the queue, jump to the next time when customer will be cleared
 				current_time += PT_left;
 				PT_left = 0;
 			}

@@ -10,7 +10,7 @@ using namespace std;
 template <class T>
 void Heap<T>::_bubbleUp(int index) {
 	while (index > 0) {
-		int parent = floor((index - 1) / 2);
+		int parent = floor((index - 1) / 2); //compute index of parent
 		if (_heap[index] > _heap[parent]) {
 			swap(_heap[index], _heap[parent]);
 			index = parent;
@@ -26,23 +26,30 @@ void Heap<T>::_bubbleDown(int index) {
 	while (index < _n) {
 		int leftChild = (2 * index) + 1;
 		int rightChild = (2 * index) + 2;
-		if (_heap[leftChild] > _heap[index] && leftChild < _n) {					//either smaller than left only or smaller than both
-			if (_heap[rightChild] > _heap[index] && rightChild < _n) {				//smaller than both left and right
-				if (_heap[leftChild] > _heap[rightChild]) {		//swap with bigger child (left)
+		if (_heap[leftChild] > _heap[index] && leftChild < _n) { 
+			//either smaller than left only or smaller than both
+			if (_heap[rightChild] > _heap[index] && rightChild < _n) { 
+				//smaller than both left and right
+				if (_heap[leftChild] > _heap[rightChild]) {		
+					//swap with bigger child (left)
 					swap(_heap[index], _heap[leftChild]);
 					index = leftChild;
 				}
 				else {
-					swap(_heap[index], _heap[rightChild]);		//swap with bigger child (right)
+					swap(_heap[index], _heap[rightChild]);		
+					//swap with bigger child (right)
 					index = rightChild;
 				}
 			}
 			else {
+				//smaller than left only
 				swap(_heap[index], _heap[leftChild]);
-				index = leftChild;								//smaller than left only
+				index = leftChild;
+				
 			}
 		}
-		else if (_heap[rightChild] > _heap[index] && rightChild < _n) {			//smaller than right only
+		else if (_heap[rightChild] > _heap[index] && rightChild < _n) {	
+			//smaller than right only
 			swap(_heap[index], _heap[rightChild]);
 			index = rightChild;
 		}
