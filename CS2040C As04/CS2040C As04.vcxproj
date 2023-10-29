@@ -127,12 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Downloads\CS2040C Assignment 4\main.cpp" />
+    <ClCompile Include="customer.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Downloads\CS2040C Assignment 4\heap.h" />
     <ClInclude Include="..\..\..\..\Downloads\CS2040C Assignment 4\heap.hpp" />
-    <ClInclude Include="..\..\..\..\Downloads\customer.h" />
+    <ClInclude Include="customer.h" />
+    <ClInclude Include="heap.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

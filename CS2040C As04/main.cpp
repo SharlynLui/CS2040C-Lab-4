@@ -7,9 +7,8 @@ void hiddenHeapTest();
 void customerQueueTest();
 
 int main() {
-    heapTest();
-
-    //customerQueueTest(10);
+    //heapTest();
+    customerQueueTest(10);
 
 }
 
@@ -54,7 +53,7 @@ void heapTest(){
 	ih.printTree();
 	cout << endl << endl;
     
-    cout << "Decreasing the key 15 to 13"  << endl;
+    cout << "Decreasing the key 15 to 13)"  << endl;
     ih.decreaseKey(15,13);
 	cout << "Heap Array:";
 	ih.printHeapArray();
